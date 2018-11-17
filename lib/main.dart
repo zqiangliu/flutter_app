@@ -5,6 +5,7 @@ import 'LoginPage.dart';
 import 'MqttPage.dart';
 import 'LayoutPage.dart';
 import 'FilePage.dart';
+import 'TabPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
 					'/login': (context) => LoginPage(),
 					'/mqtt': (context) => MqttPage(),
 					'/layout': (context) => LayoutPage(),
-					'/file': (context) => FilePage()
+					'/file': (context) => FilePage(),
+					'/tab': (context) => TabPage()
 				}
 		);
 	}

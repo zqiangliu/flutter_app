@@ -48,6 +48,7 @@ class MqttPageState extends State<MqttPage>{
 
   @override
   void dispose() {
+    _controller.dispose();
     client.disconnect();
     super.dispose();
   }

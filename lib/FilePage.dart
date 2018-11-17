@@ -21,6 +21,14 @@ class FilePageState extends State<FilePage>{
     _getAppRootDirectory();
   }
 
+
+  @override
+  void dispose() {
+    _filePathController.dispose();
+    _fileContentController.dispose();
+    super.dispose();
+  }
+
   _getAppRootDirectory(){
     getApplicationDocumentsDirectory().then((d){
       _readDirectory(d.path);

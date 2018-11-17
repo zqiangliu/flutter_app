@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ListDemo extends StatelessWidget{
-  var items = ['Layout示例', '图片切换', '登录表单', 'MQTT示例', '文件操作'];
+  var items = ['Layout示例', '图片切换', '登录表单', 'MQTT示例', '文件操作', 'Tab示例'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +38,9 @@ class ListDemo extends StatelessWidget{
         break;
       case 4:
         Navigator.pushNamed(ctx, '/file');
+        break;
+      case 5:
+        Navigator.pushNamed(ctx, '/tab');
         break;
       default:
         break;
