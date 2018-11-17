@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ListDemo extends StatelessWidget{
-  var items2 = ['Layout示例', '图片切换', '登录表单', 'MQTT示例'];
+  var items = ['Layout示例', '图片切换', '登录表单', 'MQTT示例', '文件操作'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Demo')),
       body: ListView.builder(
-          itemCount: items2.length,
+          itemCount: items.length,
           itemBuilder:(context, index){
             return ListTile(
-              title: Text(items2[index]),
+              title: Text(items[index]),
               trailing: Icon(
                 Icons.chevron_right,
                 color: Colors.blueGrey,
@@ -35,6 +35,9 @@ class ListDemo extends StatelessWidget{
         break;
       case 3:
         Navigator.pushNamed(ctx, '/mqtt');
+        break;
+      case 4:
+        Navigator.pushNamed(ctx, '/file');
         break;
       default:
         break;

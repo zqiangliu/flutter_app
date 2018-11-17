@@ -89,6 +89,7 @@ class LayoutPage extends StatelessWidget{
       child: Text(
         article,
         style: TextStyle(color: Colors.blueGrey, fontSize: 15),
+        softWrap: true,
       ),
     );
 
