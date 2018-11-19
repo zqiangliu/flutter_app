@@ -6,6 +6,7 @@ import 'MqttPage.dart';
 import 'LayoutPage.dart';
 import 'FilePage.dart';
 import 'TabPage.dart';
+import 'JsonPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
 					'/mqtt': (context) => MqttPage(),
 					'/layout': (context) => LayoutPage(),
 					'/file': (context) => FilePage(),
-					'/tab': (context) => TabPage()
+					'/tab': (context) => TabPage(),
+					'/json': (context) => JsonPage()
 				}
 		);
 	}
