@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:mqtt_client/mqtt_client.dart';
+import 'package:utf/utf.dart';
+import 'package:typed_data/typed_data.dart' as typed;
 
 class MqttPage extends StatefulWidget{
 
@@ -73,8 +75,8 @@ class MqttPageState extends State<MqttPage>{
     client.subscribe(topic, MqttQos.atMostOnce);
     client.updates.listen((List<MqttReceivedMessage> c) {
       final MqttPublishMessage recMess = c[0].payload as MqttPublishMessage;
-      String pt = MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
-
+//      String pt = MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
+      String pt = decodeUtf8(recMess.payload.message);
       print("message received, topic:${c[0].topic}, payload:${pt}");
       setState(() {
         message += '\n$pt';
@@ -138,7 +140,9 @@ class MqttPageState extends State<MqttPage>{
     var message = _controller.text;
     print('text=$message');
     MqttClientPayloadBuilder builder = new MqttClientPayloadBuilder();
-    builder.addString(message);
+    var _buf = typed.Uint8Buffer();
+    _buf.addAll(encodeUtf8(message));
+    builder.addBuffer(_buf);
     client.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
     _controller.text = '';
   }
